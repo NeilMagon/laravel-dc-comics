@@ -92,7 +92,6 @@ class ComicController extends Controller
 
         $formData = $request->all();
 
-        //* ricorda di precompilare il form
         $comic->fill($formData);
         $comic->save();
 
