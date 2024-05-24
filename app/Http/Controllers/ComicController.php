@@ -25,9 +25,9 @@ class ComicController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        //
-    }
+        {
+            return view('comics.create');
+        }
 
     /**
      * Store a newly created resource in storage.
@@ -37,7 +37,20 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $formData = $request->all();
+
+        $newComic = new Comic();
+        //$newComic->title = $formData['title'];
+        //$newComic->description = $formData['description'];
+        //$newComic->thumb = $formData['thumb'];
+        //$newComic->price = $formData['price'];
+        //$newComic->type = $formData['type'];
+        //$newComic->series = $formData['series'];
+        //$newComic->sale_date = $formData['sale_date'];
+        $newComic->fill($formData);
+        $newComic->save();
+
+        return redirect()->route('comics.show', ['comic' => $newComic->id]);
     }
 
     /**
