@@ -18,6 +18,9 @@
                                 <li class="list-group-item">{{ $comic->sale_date }}</li>
                             </ul>
                         </div>
+                        <div class="card-body">
+                            <a href="{{ route('comics.show', ['comic' => $comic->id])}}" class="card-link">Mostra altro</a>
+                        </div>
                     </div>
                 </div>
             @endforeach
